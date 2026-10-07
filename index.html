@@ -104,6 +104,16 @@ footer{background:#090909;color:#ddd;padding:55px 0 20px}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:35px}
 footer h3{color:#fff;font-size:15px;text-transform:uppercase;letter-spacing:1.5px}
 footer a:hover{color:var(--gold2)}
+dialog.legal{width:min(760px,94%);max-height:88vh;padding:0;border:0;background:#fff;color:#222;line-height:1.6}
+dialog.legal::backdrop{background:rgba(0,0,0,.65)}
+dialog.legal .legal-in{padding:34px 34px 30px}
+dialog.legal h2{margin:0 0 18px;font-size:26px}
+dialog.legal h3{margin:24px 0 6px;font-size:17px}
+dialog.legal p,dialog.legal li{font-size:15px;margin:6px 0}
+dialog.legal ul{padding-left:20px}
+dialog.legal .fermer{position:sticky;top:0;float:right;margin:10px 10px 0 0;border:0;background:#151515;color:#fff;width:36px;height:36px;font-size:20px;cursor:pointer}
+dialog.legal .maj{font-size:13px;color:#666}
+dialog.legal mark{background:#fff3c4}
 .bottom{border-top:1px solid #333;margin-top:35px;padding-top:18px;font-size:13px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
 .small{font-size:14px;color:#aaa}
 .mobile{display:none}
@@ -541,7 +551,7 @@ footer a:hover{color:var(--gold2)}
     </div>
     <div class="bottom">
       <span>© 2026 Signature Façades — Tous droits réservés.</span>
-      <span><a href="#">Mentions légales</a> · <a href="#">Politique de confidentialité</a> · <a href="#">Cookies</a> · <a href="#">Plan du site</a></span>
+      <span><a href="#mentions" data-open="mentions">Mentions légales</a> · <a href="#confidentialite" data-open="confidentialite">Politique de confidentialité</a> · <a href="#cookies" data-open="cookies">Cookies</a> · <a href="#plan" data-open="plan">Plan du site</a></span>
     </div>
   </div>
 </footer>
@@ -562,6 +572,91 @@ footer a:hover{color:var(--gold2)}
         st.className='erreur'; st.textContent="L'envoi a échoué. Appelez-nous au 06 13 12 64 76 ou écrivez à signaturefacades@hotmail.com.";
       })
       .finally(function(){b.disabled=false; b.textContent='Envoyer ma demande';});
+  });
+})();
+</script>
+
+<dialog class="legal" id="mentions" aria-labelledby="t-mentions">
+<button class="fermer" aria-label="Fermer">×</button>
+<div class="legal-in">
+<h2 id="t-mentions">Mentions légales</h2>
+<h3>Éditeur du site</h3>
+<p><strong>Signature Façades</strong>, société par actions simplifiée (SAS) au capital de 1 000,00 €<br>
+Siège social : 27 rue Léon et Cécile Mathy, 39570 Montmorot<br>
+SIRET : 101 937 126 00015<br>
+RCS Lons-le-Saunier : 101 937 126<br>
+TVA intracommunautaire : FR72 101937126<br>
+Téléphone : <a href="tel:+33613126476">06 13 12 64 76</a><br>
+E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a></p>
+<h3>Responsable de la publication</h3>
+<p>Metin AKHAN, président de Signature Façades.</p>
+<h3>Hébergement</h3>
+<p>Le site est hébergé par GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (GitHub Pages). Téléphone : +1 877 448 4820.</p>
+<h3>Assurance professionnelle</h3>
+<p>Assurance responsabilité civile décennale souscrite auprès d'Allianz, agence de Lons-le-Saunier, 13 avenue Thurel, 39000 Lons-le-Saunier, valable pour les travaux réalisés en France métropolitaine.</p>
+<h3>Propriété intellectuelle</h3>
+<p>Les textes, images, logos et photographies présents sur ce site sont la propriété de Signature Façades, sauf mention contraire. Toute reproduction, totale ou partielle, sans autorisation écrite préalable est interdite.</p>
+<h3>Responsabilité</h3>
+<p>Signature Façades s'efforce de fournir des informations exactes et à jour, sans garantie d'exhaustivité. Les informations du site ne constituent pas un devis : seul un devis écrit et signé engage la société. Le site peut contenir des liens vers des sites tiers dont Signature Façades n'est pas responsable.</p>
+<h3>Médiation de la consommation</h3>
+<p>Conformément au Code de la consommation, tout consommateur peut recourir gratuitement à un médiateur de la consommation en cas de litige. <mark>[Nom et coordonnées du médiateur auquel vous adhérez]</mark></p>
+<h3>Droit applicable</h3>
+<p>Le présent site est soumis au droit français. En cas de litige, les tribunaux français sont compétents.</p>
+<p class="maj">Dernière mise à jour : octobre 2026</p>
+</div></dialog>
+
+<dialog class="legal" id="confidentialite" aria-labelledby="t-conf">
+<button class="fermer" aria-label="Fermer">×</button>
+<div class="legal-in">
+<h2 id="t-conf">Politique de confidentialité</h2>
+<h3>Responsable du traitement</h3>
+<p>Signature Façades SAS, 27 rue Léon et Cécile Mathy, 39570 Montmorot. Contact : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a>.</p>
+<h3>Données collectées</h3>
+<p>Lorsque vous remplissez le formulaire de demande de devis, nous collectons : nom et prénom, numéro de téléphone, adresse e-mail, commune du chantier, type de projet et contenu de votre message.</p>
+<h3>Finalité et base légale</h3>
+<p>Ces données servent uniquement à répondre à votre demande de devis et à vous recontacter. Le traitement repose sur votre consentement (case cochée avant l'envoi) et sur l'exécution de mesures précontractuelles prises à votre demande.</p>
+<h3>Destinataires et sous-traitants</h3>
+<p>Les données sont destinées à Signature Façades. Le formulaire est transmis par le service Web3Forms (Web3Forms, service d'envoi de formulaires), qui agit comme sous-traitant technique et peut traiter les données en dehors de l'Union européenne. Nous ne vendons ni ne cédons vos données à des tiers.</p>
+<h3>Durée de conservation</h3>
+<p>Vos données sont conservées pendant la durée nécessaire au traitement de votre demande, puis au maximum 3 ans après le dernier contact si aucune suite commerciale n'est donnée. En cas de contrat, elles sont conservées selon les durées légales applicables.</p>
+<h3>Vos droits</h3>
+<p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement à tout moment. Pour les exercer, écrivez à <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a>.</p>
+<p>Vous pouvez aussi introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
+<p class="maj">Dernière mise à jour : octobre 2026</p>
+</div></dialog>
+
+<dialog class="legal" id="cookies" aria-labelledby="t-cook">
+<button class="fermer" aria-label="Fermer">×</button>
+<div class="legal-in">
+<h2 id="t-cook">Cookies</h2>
+<p>Ce site ne dépose aucun cookie publicitaire, de mesure d'audience ou de suivi. Il ne nécessite donc pas de bannière de consentement.</p>
+<p>Votre navigateur peut toutefois enregistrer des données techniques strictement nécessaires à l'affichage du site. Si nous ajoutons un jour un outil de statistiques ou de suivi, cette page sera mise à jour et votre consentement vous sera demandé.</p>
+<p class="maj">Dernière mise à jour : octobre 2026</p>
+</div></dialog>
+
+<dialog class="legal" id="plan" aria-labelledby="t-plan">
+<button class="fermer" aria-label="Fermer">×</button>
+<div class="legal-in">
+<h2 id="t-plan">Plan du site</h2>
+<ul>
+<li><a href="#accueil">Accueil</a></li>
+<li><a href="#services">Nos services</a></li>
+<li><a href="#realisations">Nos réalisations</a></li>
+<li><a href="#apropos">À propos</a></li>
+<li><a href="#zone">Zone d'intervention</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#devis">Demander un devis</a></li>
+</ul>
+</div></dialog>
+<script>
+(function(){
+  document.querySelectorAll('[data-open]').forEach(function(a){
+    a.addEventListener('click',function(e){e.preventDefault();document.getElementById(a.dataset.open).showModal();});
+  });
+  document.querySelectorAll('dialog.legal').forEach(function(d){
+    d.querySelector('.fermer').addEventListener('click',function(){d.close();});
+    d.addEventListener('click',function(e){if(e.target===d)d.close();});
+    d.querySelectorAll('a[href^="#"]').forEach(function(l){l.addEventListener('click',function(){d.close();});});
   });
 })();
 </script>
