@@ -94,6 +94,12 @@ h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:18px 0}
 label{display:block;font-weight:700;font-size:14px;margin:12px 0 6px}
 input,textarea,select{width:100%;padding:13px;border:1px solid #ddd;font:inherit}
 textarea{min-height:130px;resize:vertical}
+.rgpd{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13px}
+.rgpd input{width:auto;margin-top:3px}
+#form-statut{margin:14px 0 0;min-height:1.4em;font-weight:700}
+#form-statut.ok{color:#1e6b3a}
+#form-statut.erreur{color:#b3261e}
+#btn-envoi:disabled{opacity:.6;cursor:wait}
 footer{background:#090909;color:#ddd;padding:55px 0 20px}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:35px}
 footer h3{color:#fff;font-size:15px;text-transform:uppercase;letter-spacing:1.5px}
@@ -481,25 +487,30 @@ footer a:hover{color:var(--gold2)}
     </div>
     <div id="devis" class="form">
       <h3>Demander un devis</h3>
-      <form action="mailto:signaturefacades@hotmail.com" method="post" enctype="text/plain">
+      <form id="form-devis" novalidate>
+        <input type="hidden" name="access_key" value="63308e5e-b853-41db-a911-e50583a16707">
+        <input type="hidden" name="subject" value="Nouvelle demande de devis — signature-facades.fr">
+        <input type="hidden" name="from_name" value="Site Signature Façades">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
         <label for="nom">Nom / Prénom</label>
-        <input id="nom" name="Nom" required>
+        <input id="nom" name="Nom" autocomplete="name" required>
         <label for="tel">Téléphone</label>
-        <input id="tel" name="Téléphone" type="tel" required>
+        <input id="tel" name="Téléphone" type="tel" autocomplete="tel" required>
         <label for="email">E-mail</label>
-        <input id="email" name="Email" type="email" required>
+        <input id="email" name="Email" type="email" autocomplete="email" required>
         <label for="commune">Commune du chantier</label>
-        <input id="commune" name="Commune">
+        <input id="commune" name="Commune" required>
         <label for="projet">Type de projet</label>
         <select id="projet" name="Projet">
           <option>Ravalement</option><option>Rénovation</option><option>Enduit / finition</option>
           <option>Traitement des fissures</option><option>Imitation Pierre</option><option>Peinture extérieure</option><option>Autre</option>
         </select>
         <label for="message">Votre message</label>
-        <textarea id="message" name="Message"></textarea>
-        <button class="cta" type="submit" style="border:0;cursor:pointer;margin-top:15px">Envoyer ma demande</button>
+        <textarea id="message" name="Message" placeholder="Surface approximative, état de la façade, délai souhaité…"></textarea>
+        <label class="rgpd"><input type="checkbox" id="rgpd" required> J'accepte que mes informations soient utilisées pour répondre à ma demande de devis.</label>
+        <button id="btn-envoi" class="cta" type="submit" style="border:0;cursor:pointer;margin-top:15px">Envoyer ma demande</button>
+        <p id="form-statut" role="status" aria-live="polite"></p>
       </form>
-      <p class="small">Le formulaire ouvre votre logiciel de messagerie. Pour un formulaire envoyé directement depuis le site, il faudra ensuite connecter un service de formulaire.</p>
     </div>
   </div>
 </section>
@@ -534,5 +545,25 @@ footer a:hover{color:var(--gold2)}
     </div>
   </div>
 </footer>
+<script>
+(function(){
+  var f=document.getElementById('form-devis'),st=document.getElementById('form-statut'),b=document.getElementById('btn-envoi');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); st.className=''; st.textContent='';
+    if(!f.checkValidity()){f.reportValidity();return;}
+    b.disabled=true; b.textContent='Envoi en cours…';
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d.success) throw new Error();
+        f.reset(); st.className='ok'; st.textContent='Demande envoyée. Nous vous recontactons rapidement.';
+      })
+      .catch(function(){
+        st.className='erreur'; st.textContent="L'envoi a échoué. Appelez-nous au 06 13 12 64 76 ou écrivez à signaturefacades@hotmail.com.";
+      })
+      .finally(function(){b.disabled=false; b.textContent='Envoyer ma demande';});
+  });
+})();
+</script>
 </body>
 </html>
