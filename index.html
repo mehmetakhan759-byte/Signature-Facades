@@ -355,6 +355,16 @@ dialog.legal mark{background:#fff3c4}
 .why-item p{margin:0;font-size:15px;line-height:1.65;color:#666}
 @media(max-width:1000px){.why-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.why-grid{grid-template-columns:1fr 1fr;gap:30px 14px}.why-ic{width:76px;height:76px}.why-ic svg{width:32px;height:32px}.why-item h3{font-size:16px}.why-item p{font-size:14px}}
+/* ACCUEIL - TITRE COURT + TELEPHONE */
+.hero h1{font-size:clamp(40px,6.5vw,76px);margin-bottom:18px}
+.hero .hero-sub{font-size:clamp(16px,2vw,21px);font-weight:600;letter-spacing:.5px;color:#f1f1f1;margin:0 auto 34px}
+.btn-tel{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid #fff;border-radius:3px;color:#fff;font-weight:800;letter-spacing:.5px;transition:background .3s,color .3s,border-color .3s}
+.btn-tel svg{width:18px;height:18px;fill:var(--gold2);transition:fill .3s}
+.btn-tel:hover{background:#fff;color:#151515;border-color:#fff}
+.btn-tel:hover svg{fill:#151515}
+.hero-link{display:inline-block;margin-top:26px;color:#ddd;font-size:14px;font-weight:700;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px}
+.hero-link:hover{color:var(--gold2);border-color:var(--gold2)}
+@media(max-width:600px){.hero-actions{flex-direction:column;align-items:center}.hero-actions .cta,.btn-tel{width:100%;max-width:300px;justify-content:center;text-align:center}}
 </style>
 </head>
 <body>
@@ -381,17 +391,13 @@ dialog.legal mark{background:#fff3c4}
 <section id="accueil" class="hero">
   <div class="container hero-inner">
     <div class="kicker">Jura · Doubs · Saône-et-Loire · Côte-d'Or</div>
-    <h1>Ravalement et rénovation de façades dans le Jura</h1>
-    <p>
-  Donnez une nouvelle vie à votre façade avec Signature Façades.
-  Nous réalisons vos travaux de ravalement, rénovation, enduits,
-  imitation pierre, joint pierre et peinture extérieure,
-  avec une attention particulière portée aux finitions.
-</p>
+    <h1>Façadier dans le Jura</h1>
+    <p class="hero-sub">Ravalement · Enduits · Imitation pierre · Peinture extérieure</p>
     <div class="hero-actions">
       <a class="cta" href="#devis">Demander un devis</a>
-      <a class="btn-outline" href="#realisations">Voir nos réalisations</a>
+      <a class="btn-tel" href="tel:+33613126476"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>06 13 12 64 76</a>
     </div>
+    <a class="hero-link" href="#realisations">Voir nos réalisations ↓</a>
   </div>
 </section>
 
