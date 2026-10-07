@@ -340,6 +340,21 @@ dialog.legal mark{background:#fff3c4}
  .svc img,.svc-arrow{display:none}
  .svc h3,.svc:hover h3,.svc-list:not(:hover) .svc.is-open h3{color:#fff}
 }
+/* POURQUOI NOUS CHOISIR */
+.why{background:#fff}
+.why-head{text-align:center;max-width:780px;margin:0 auto 55px}
+.why-head .gold-line{margin-left:auto;margin-right:auto}
+.why-head .lead{margin:0 auto}
+.why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:28px 22px}
+.why-item{text-align:center;padding:10px 4px}
+.why-ic{width:92px;height:92px;margin:0 auto 22px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;transition:background .3s,transform .3s}
+.why-ic svg{width:38px;height:38px;fill:none;stroke:var(--gold);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.why-item:hover .why-ic{background:var(--gold);transform:translateY(-5px)}
+.why-item:hover .why-ic svg{stroke:#151515}
+.why-item h3{margin:0 0 10px;font-size:18px;line-height:1.3;color:#151515}
+.why-item p{margin:0;font-size:15px;line-height:1.65;color:#666}
+@media(max-width:1000px){.why-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.why-grid{grid-template-columns:1fr 1fr;gap:30px 14px}.why-ic{width:76px;height:76px}.why-ic svg{width:32px;height:32px}.why-item h3{font-size:16px}.why-item p{font-size:14px}}
 </style>
 </head>
 <body>
@@ -417,6 +432,25 @@ dialog.legal mark{background:#fff3c4}
       </a>
     </div>
 
+  </div>
+</section>
+
+<section id="pourquoi" class="section why">
+  <div class="container">
+    <div class="why-head">
+      <div class="kicker">Confiance</div>
+      <h2 class="section-title">Pourquoi nous choisir ?</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Une expertise reconnue, des matériaux de qualité et un accompagnement de confiance pour tous vos travaux de façade.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M12 2.8l2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3L2.9 9.5l6.3-.9z"/></svg></div><h3>+20 ans d'expérience</h3><p>Une expertise solide en ravalement, enduits et rénovation de façades.</p></div>
+      <div class="why-item"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg></div><h3>Devis gratuit et personnalisé</h3><p>Étude précise de votre projet et solution adaptée à votre budget.</p></div>
+      <div class="why-item"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M4 20l7-7M13 4l7 7-4 4-7-7z"/><path d="M14.5 13.5l2 2"/></svg></div><h3>Finitions soignées</h3><p>Des matériaux de qualité et une attention portée à chaque détail.</p></div>
+      <div class="why-item"><div class="why-ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h3>Respect des délais</h3><p>Nous nous engageons à respecter les délais annoncés.</p></div>
+      <div class="why-item"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div><h3>Assurance décennale</h3><p>Tous nos travaux sont couverts pour votre tranquillité.</p></div>
+      <div class="why-item"><div class="why-ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></div><h3>Intervention locale</h3><p>Basés près de Lons-le-Saunier, nous intervenons dans 4 départements de l'Est.</p></div>
+    </div>
   </div>
 </section>
 
