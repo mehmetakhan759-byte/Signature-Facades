@@ -61,7 +61,8 @@ nav a:hover{color:var(--gold)}
 .cta{display:inline-block;background:var(--gold);color:#111;padding:13px 20px;border-radius:3px;font-weight:800;letter-spacing:.3px}
 .cta:hover{background:var(--gold2)}
 .hero{min-height:690px;display:grid;place-items:center;text-align:center;background:
-linear-gradient(rgba(0,0,0,.62),rgba(0,0,0,.62)),
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url(images/realisation-1.jpg) center/cover no-repeat,
 linear-gradient(135deg,#444,#171717);color:#fff}
 .hero-inner{max-width:900px;padding:90px 0}
 .kicker{color:var(--gold2);font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:14px}
@@ -81,6 +82,17 @@ h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:18px 0}
 .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .project{min-height:260px;border-radius:3px;overflow:hidden;background:linear-gradient(135deg,#ddd,#888);display:flex;align-items:end}
 .project div{width:100%;padding:22px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;font-weight:800}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.gallery figure{margin:0;position:relative;overflow:hidden;border-radius:3px;aspect-ratio:4/3;cursor:zoom-in;background:#ddd}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.gallery figure:hover img{transform:scale(1.05)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:#fff;font-weight:700;font-size:15px}
+dialog.lb{border:0;padding:0;background:transparent;max-width:96vw;max-height:94vh;overflow:visible}
+dialog.lb::backdrop{background:rgba(0,0,0,.88)}
+dialog.lb img{display:block;max-width:92vw;max-height:84vh;object-fit:contain;margin:auto}
+dialog.lb p{color:#fff;text-align:center;margin:12px 0 0;font-weight:700}
+dialog.lb button{position:fixed;border:0;background:rgba(0,0,0,.55);color:#fff;font-size:30px;width:48px;height:48px;border-radius:50%;cursor:pointer}
+dialog.lb .lb-x{top:14px;right:14px}dialog.lb .lb-p{left:12px;top:50%}dialog.lb .lb-n{right:12px;top:50%}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}
 .step{padding:24px;background:#fff;border-top:3px solid var(--gold)}
 .step b{display:block;font-size:14px;color:var(--gold);margin-bottom:8px}
@@ -118,12 +130,12 @@ dialog.legal mark{background:#fff3c4}
 .small{font-size:14px;color:#aaa}
 .mobile{display:none}
 @media(max-width:900px){
- nav{display:none} .mobile{display:block} .grid,.projects{grid-template-columns:1fr 1fr}
+ nav{display:none} .mobile{display:block} .grid,.projects,.gallery{grid-template-columns:1fr 1fr}
  .steps{grid-template-columns:1fr 1fr} .zone,.contact-grid,.footer-grid{grid-template-columns:1fr}
 }
 @media(max-width:600px){
  .logo{height:54px} .hero{min-height:620px} .section{padding:65px 0}
- .grid,.projects,.steps{grid-template-columns:1fr} h1{font-size:44px}
+ .grid,.projects,.steps,.gallery{grid-template-columns:1fr} h1{font-size:44px}
  .hero p{font-size:17px} .nav{min-height:72px}
 }/* ================================
    NOUVEAU DESIGN - SERVICES
@@ -438,14 +450,20 @@ dialog.legal mark{background:#fff3c4}
 
 <section id="realisations" class="section alt">
   <div class="container">
-    <div class="kicker">Avant / Après</div>
+    <div class="kicker">Nos chantiers</div>
     <h2 class="section-title">Nos réalisations</h2>
     <div class="gold-line"></div>
-    <p class="lead">Chaque chantier est différent : Support, exposition, style de l'habitation. Voici un aperçu des types d'interventions que nous réalisons dans le Jura, le Doubs, la Saône et Loire et la Côte d'Or.</p>
-    <div class="projects" style="margin-top:40px">
-      <div class="project"><div>Projet façade — Avant / Après</div></div>
-      <div class="project"><div>Rénovation — Avant / Après</div></div>
-      <div class="project"><div>Enduit & finition — Avant / Après</div></div>
+    <p class="lead">Chaque chantier est différent : support, exposition, style de l'habitation. Voici quelques chantiers réalisés par Signature Façades dans le Jura, le Doubs, la Saône-et-Loire et la Côte-d'Or.</p>
+    <div class="gallery">
+      <figure data-i="0"><img src="images/realisation-1.jpg" alt="Imitation pierre et enduit de façade — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Imitation pierre et enduit de façade</figcaption></figure>
+      <figure data-i="1"><img src="images/realisation-2.jpg" alt="Imitation pierre et encadrements — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Imitation pierre et encadrements</figcaption></figure>
+      <figure data-i="2"><img src="images/realisation-3.jpg" alt="Enduit de façade — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Enduit de façade</figcaption></figure>
+      <figure data-i="3"><img src="images/realisation-4.jpg" alt="Imitation pierre en pignon — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Imitation pierre en pignon</figcaption></figure>
+      <figure data-i="4"><img src="images/realisation-5.jpg" alt="Enduit de façade sur maison neuve — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Enduit de façade sur maison neuve</figcaption></figure>
+      <figure data-i="5"><img src="images/realisation-6.jpg" alt="Encadrement de porte en imitation pierre — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Encadrement de porte en imitation pierre</figcaption></figure>
+      <figure data-i="6"><img src="images/realisation-7.jpg" alt="Habillage pierre d'une entrée — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Habillage pierre d'une entrée</figcaption></figure>
+      <figure data-i="7"><img src="images/realisation-8.jpg" alt="Enduit de finition — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Enduit de finition</figcaption></figure>
+      <figure data-i="8"><img src="images/realisation-9.jpg" alt="Entrée en imitation pierre — Signature Façades" loading="lazy" width="400" height="300"><figcaption>Entrée en imitation pierre</figcaption></figure>
     </div>
     <div style="text-align:center;margin-top:35px"><a class="cta" href="#devis">Vous avez un projet similaire ?</a></div>
   </div>
@@ -658,6 +676,22 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
     d.addEventListener('click',function(e){if(e.target===d)d.close();});
     d.querySelectorAll('a[href^="#"]').forEach(function(l){l.addEventListener('click',function(){d.close();});});
   });
+})();
+</script>
+<dialog class="lb" id="lightbox" aria-label="Photo de chantier">
+<button class="lb-x" aria-label="Fermer">×</button><button class="lb-p" aria-label="Photo précédente">‹</button><button class="lb-n" aria-label="Photo suivante">›</button>
+<img alt=""><p></p>
+</dialog>
+<script>
+(function(){
+  var lb=document.getElementById('lightbox'),im=lb.querySelector('img'),cap=lb.querySelector('p'),f=[].slice.call(document.querySelectorAll('.gallery figure')),k=0;
+  function show(n){k=(n+f.length)%f.length;var i=f[k].querySelector('img');im.src=i.src;im.alt=i.alt;cap.textContent=f[k].querySelector('figcaption').textContent;}
+  f.forEach(function(x,n){x.addEventListener('click',function(){show(n);lb.showModal();});});
+  lb.querySelector('.lb-x').onclick=function(){lb.close();};
+  lb.querySelector('.lb-p').onclick=function(){show(k-1);};
+  lb.querySelector('.lb-n').onclick=function(){show(k+1);};
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
+  document.addEventListener('keydown',function(e){if(!lb.open)return;if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
 })();
 </script>
 </body>
