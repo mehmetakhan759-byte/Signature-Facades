@@ -364,10 +364,22 @@ dialog.legal mark{background:#fff3c4}
 .avis-cta p{color:#ccc;margin:0 0 26px}
 @media(min-width:901px) and (max-width:1150px){nav{gap:14px;font-size:13px}nav a{white-space:nowrap}nav .cta{padding:11px 14px}}
 nav a.actif{color:var(--gold)}
+/* BANDE DEFILANTE */
+.bande{background:#f5f4f1;border-bottom:1px solid #e7e2d6;overflow:hidden;white-space:nowrap;font-size:12.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;line-height:1}
+.bande-track{display:flex;width:max-content;animation:bande 45s linear infinite}
+.bande:hover .bande-track{animation-play-state:paused}
+.bande-grp{display:flex;align-items:center;padding:11px 0}
+.bande-grp span{padding:0 22px}
+.bande .bg{color:#a8821f}
+.bande .bn{color:#555}
+.bande i{width:4px;height:4px;border-radius:50%;background:#c9c3b5;flex-shrink:0}
+@keyframes bande{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.bande-track{animation:none}}
 </style>
 </head>
 <body>
 
+<div class="bande" role="region" aria-label="Points forts de Signature Façades"><div class="bande-track"><div class="bande-grp"><span class="bg">Ravalement · Enduits · Imitation pierre</span><i></i><span class="bn">Entreprise familiale, de père en fils</span><i></i><span class="bg">+20 ans d'expérience</span><i></i><span class="bn">Garantie décennale</span><i></i><span class="bg">5,0 ★ sur Google</span><i></i><span class="bn">Devis gratuit</span><i></i><span class="bg">6 départements de l'Est</span><i></i></div><div class="bande-grp" aria-hidden="true"><span class="bg">Ravalement · Enduits · Imitation pierre</span><i></i><span class="bn">Entreprise familiale, de père en fils</span><i></i><span class="bg">+20 ans d'expérience</span><i></i><span class="bn">Garantie décennale</span><i></i><span class="bg">5,0 ★ sur Google</span><i></i><span class="bn">Devis gratuit</span><i></i><span class="bg">6 départements de l'Est</span><i></i></div></div></div>
 <header>
   <div class="container nav">
     <a href="/" aria-label="Signature Façades - Accueil">
