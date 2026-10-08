@@ -401,6 +401,38 @@ dialog.legal mark{background:#fff3c4}
 .about-link:hover{color:var(--gold)}
 @media(max-width:900px){.about{grid-template-columns:1fr;gap:50px}.about-img{max-width:560px;margin-right:18px}}
 @media(max-width:600px){.about-stats b{font-size:28px}.about-stats>*{padding:16px 8px}.about-img figcaption{right:-10px;bottom:-14px;padding:14px 16px;font-size:14px}}
+/* DEVIS */
+.devis-sec{position:relative;padding:110px 16px;background:linear-gradient(rgba(10,10,10,.55),rgba(10,10,10,.55)),url(images/realisation-8.jpg) center/cover no-repeat,#151515}
+.devis-card{scroll-margin-top:100px;max-width:980px;margin:0 auto;background:#fff;border-radius:28px;padding:64px 70px 40px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.devis-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid #151515;border-radius:999px;padding:7px 18px;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+.devis-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.devis-title{font-size:clamp(30px,4.2vw,46px);line-height:1.1;margin:22px 0 12px;color:#151515;letter-spacing:-.5px}
+.devis-sub{color:#666;margin:0 auto 38px;max-width:520px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.devis-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px;text-align:left}
+.devis-grid .full{grid-column:1/-1}
+.devis-sec input:not([type=checkbox]),.devis-sec select,.devis-sec textarea{width:100%;border:1px solid transparent;background:#f2f1ee;border-radius:999px;padding:19px 26px;font:inherit;font-size:16px;color:#151515;outline:none;transition:border-color .2s,background .2s;-webkit-appearance:none;appearance:none}
+.devis-sec select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23151515' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 24px center;background-size:18px;cursor:pointer}
+.devis-sec select:invalid{color:#888}
+.devis-sec textarea{border-radius:26px;min-height:190px;resize:vertical}
+.devis-sec input::placeholder,.devis-sec textarea::placeholder{color:#888}
+.devis-sec input:focus,.devis-sec select:focus,.devis-sec textarea:focus{border-color:var(--gold);background:#fff}
+.devis-rgpd{display:flex;gap:10px;align-items:flex-start;text-align:left;font-size:13px;font-weight:400;color:#666;margin:18px 4px 0}
+.devis-rgpd input{width:auto;margin-top:3px;accent-color:var(--gold)}
+.devis-foot{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:26px;text-align:left}
+.devis-foot p{margin:0;font-size:17px;color:#333;line-height:1.45}
+#btn-envoi{display:inline-flex;align-items:center;gap:22px;border:0;cursor:pointer;background:#151515;color:#fff;font:inherit;font-size:18px;font-weight:800;padding:10px 10px 10px 32px;border-radius:999px;transition:background .25s}
+#btn-envoi .btn-ic{width:50px;height:50px;border-radius:50%;background:var(--gold);display:grid;place-items:center;transition:transform .25s}
+#btn-envoi svg{width:22px;height:22px;fill:none;stroke:#151515;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+#btn-envoi:hover{background:#2a2a2a}
+#btn-envoi:hover .btn-ic{transform:rotate(45deg)}
+#btn-envoi:disabled{opacity:.6;cursor:wait}
+.devis-sec #form-statut{text-align:left;margin:14px 0 0}
+.devis-infos{display:flex;justify-content:center;gap:14px 34px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid #ece9e2}
+.devis-infos a{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:#151515}
+.devis-infos a:hover{color:var(--gold)}
+.devis-infos svg{width:18px;height:18px;fill:var(--gold);color:var(--gold)}
+@media(max-width:700px){.devis-sec{padding:70px 12px}.devis-card{padding:44px 20px 28px;border-radius:22px}.devis-grid{grid-template-columns:1fr}.devis-foot{flex-direction:column;align-items:stretch;text-align:center}#btn-envoi{justify-content:space-between}}
 </style>
 </head>
 <body>
@@ -563,43 +595,39 @@ dialog.legal mark{background:#fff3c4}
   </div>
 </section>
 
-<section id="contact" class="section contact">
-  <div class="container contact-grid">
-    <div>
-      <div class="kicker">Contact</div>
-      <h2 class="section-title">Parlons de votre projet</h2>
-      <div class="gold-line"></div>
-      <p>Une question, un projet de rénovation ou une demande de devis ? Contactez Signature Façades.</p>
-      <p><strong>Téléphone</strong><br><a href="tel:+33613126476">06 13 12 64 76</a></p>
-      <p><strong>E-mail</strong><br><a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a></p>
-      <p><strong>Zone</strong><br>Jura · Doubs · Saône-et-Loire · Côte-d'Or · Ain · Haute-Saône</p>
-    </div>
-    <div id="devis" class="form">
-      <h3>Demander un devis</h3>
-      <form id="form-devis" novalidate>
-        <input type="hidden" name="access_key" value="63308e5e-b853-41db-a911-e50583a16707">
-        <input type="hidden" name="subject" value="Nouvelle demande de devis — signature-facades.fr">
-        <input type="hidden" name="from_name" value="Site Signature Façades">
-        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
-        <label for="nom">Nom / Prénom</label>
-        <input id="nom" name="Nom" autocomplete="name" required>
-        <label for="tel">Téléphone</label>
-        <input id="tel" name="Téléphone" type="tel" autocomplete="tel" required>
-        <label for="email">E-mail</label>
-        <input id="email" name="Email" type="email" autocomplete="email" required>
-        <label for="commune">Commune du chantier</label>
-        <input id="commune" name="Commune" required>
-        <label for="projet">Type de projet</label>
-        <select id="projet" name="Projet">
-          <option>Ravalement</option><option>Rénovation</option><option>Enduit / finition</option><option>Joint pierre</option>
-          <option>Traitement des fissures</option><option>Imitation Pierre</option><option>Isolation extérieure</option><option>Peinture extérieure</option><option>Autre</option>
-        </select>
-        <label for="message">Votre message</label>
-        <textarea id="message" name="Message" placeholder="Surface approximative, état de la façade, délai souhaité…"></textarea>
-        <label class="rgpd"><input type="checkbox" id="rgpd" required> J'accepte que mes informations soient utilisées pour répondre à ma demande de devis.</label>
-        <button id="btn-envoi" class="cta" type="submit" style="border:0;cursor:pointer;margin-top:15px">Envoyer ma demande</button>
-        <p id="form-statut" role="status" aria-live="polite"></p>
-      </form>
+<section id="contact" class="devis-sec">
+  <div class="devis-card" id="devis">
+    <span class="devis-tag">Devis gratuit</span>
+    <h2 class="devis-title">Parlons de votre projet</h2>
+    <p class="devis-sub">Décrivez-nous votre façade : nous vous recontactons rapidement pour fixer une visite.</p>
+    <form id="form-devis" novalidate>
+      <input type="hidden" name="access_key" value="63308e5e-b853-41db-a911-e50583a16707">
+      <input type="hidden" name="subject" value="Nouvelle demande de devis — signature-facades.fr">
+      <input type="hidden" name="from_name" value="Site Signature Façades">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+      <div class="devis-grid">
+        <div><label class="sr" for="nom">Nom et prénom</label><input id="nom" name="Nom" autocomplete="name" placeholder="Votre nom*" required></div>
+        <div><label class="sr" for="tel">Téléphone</label><input id="tel" name="Téléphone" type="tel" autocomplete="tel" placeholder="Votre téléphone*" required></div>
+        <div><label class="sr" for="email">E-mail</label><input id="email" name="Email" type="email" autocomplete="email" placeholder="Votre e-mail*" required></div>
+        <div><label class="sr" for="commune">Commune du chantier</label><input id="commune" name="Commune" placeholder="Commune du chantier*" required></div>
+        <div class="full"><label class="sr" for="projet">Type de projet</label>
+          <select id="projet" name="Projet" required>
+            <option value="" disabled selected>Votre projet…</option>
+            <option>Ravalement</option><option>Rénovation</option><option>Enduit / finition</option><option>Joint pierre</option>
+            <option>Traitement des fissures</option><option>Imitation pierre</option><option>Isolation extérieure</option><option>Peinture extérieure</option><option>Autre</option>
+          </select></div>
+        <div class="full"><label class="sr" for="message">Votre message</label><textarea id="message" name="Message" placeholder="Quelques détails sur votre projet : surface approximative, état de la façade, délai souhaité…"></textarea></div>
+      </div>
+      <label class="devis-rgpd"><input type="checkbox" id="rgpd" required> J'accepte que mes informations soient utilisées pour répondre à ma demande de devis.</label>
+      <div class="devis-foot">
+        <p>Nous vous recontactons<br>dans les plus brefs délais.</p>
+        <button id="btn-envoi" type="submit"><span class="btn-txt">Envoyer</span><span class="btn-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg></span></button>
+      </div>
+      <p id="form-statut" role="status" aria-live="polite"></p>
+    </form>
+    <div class="devis-infos">
+      <a href="tel:+33613126476"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>06 13 12 64 76</a>
+      <a href="mailto:signaturefacades@hotmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2"/></svg>signaturefacades@hotmail.com</a>
     </div>
   </div>
 </section>
@@ -636,11 +664,11 @@ dialog.legal mark{background:#fff3c4}
 </footer>
 <script>
 (function(){
-  var f=document.getElementById('form-devis'),st=document.getElementById('form-statut'),b=document.getElementById('btn-envoi');
+  var f=document.getElementById('form-devis'),st=document.getElementById('form-statut'),b=document.getElementById('btn-envoi'),bt=b.querySelector('.btn-txt');
   f.addEventListener('submit',function(e){
     e.preventDefault(); st.className=''; st.textContent='';
     if(!f.checkValidity()){f.reportValidity();return;}
-    b.disabled=true; b.textContent='Envoi en cours…';
+    b.disabled=true; bt.textContent='Envoi en cours…';
     fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
       .then(function(r){return r.json();})
       .then(function(d){
@@ -650,7 +678,7 @@ dialog.legal mark{background:#fff3c4}
       .catch(function(){
         st.className='erreur'; st.textContent="L'envoi a échoué. Appelez-nous au 06 13 12 64 76 ou écrivez à signaturefacades@hotmail.com.";
       })
-      .finally(function(){b.disabled=false; b.textContent='Envoyer ma demande';});
+      .finally(function(){b.disabled=false; bt.textContent='Envoyer';});
   });
 })();
 </script>
