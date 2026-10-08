@@ -371,6 +371,41 @@ dialog.legal mark{background:#fff3c4}
 .hero-link{display:inline-block;margin-top:26px;color:#ddd;font-size:14px;font-weight:700;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px}
 .hero-link:hover{color:var(--gold2);border-color:var(--gold2)}
 @media(max-width:600px){.hero-actions{flex-direction:column;align-items:center}.hero-actions .cta,.btn-tel{width:100%;max-width:300px;justify-content:center;text-align:center}}
+/* AVIS CLIENTS */
+.avis{background:#121212;color:#fff}
+.avis .section-title{color:#fff}
+.avis .lead{color:#b9b9b9}
+.avis-head{text-align:center;max-width:780px;margin:0 auto 50px}
+.avis-head .gold-line,.avis-head .lead{margin-left:auto;margin-right:auto}
+.avis-score{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px;font-weight:700;color:#ddd}
+.avis-score b{font-size:34px;color:#fff}
+.stars{color:var(--gold);letter-spacing:2px;font-size:18px}
+.stars .off{color:#444}
+.avis-list{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.avis-card{margin:0;padding:30px 28px;border:1px solid rgba(255,255,255,.12);border-radius:3px;background:rgba(255,255,255,.03);display:flex;flex-direction:column;gap:16px}
+.avis-card blockquote{margin:0;color:#ddd;font-size:16px;line-height:1.7;flex:1}
+.avis-card blockquote::before{content:"\201C";display:block;font-size:54px;line-height:.6;color:var(--gold);font-family:Georgia,serif;margin-bottom:6px}
+.avis-card figcaption{font-size:14px;color:#aaa;border-top:1px solid rgba(255,255,255,.1);padding-top:14px}
+.avis-card figcaption strong{display:block;color:#fff;font-size:15px}
+.avis-vide{grid-column:1/-1;text-align:center;padding:42px 24px;border:1px dashed rgba(201,162,58,.5);border-radius:3px;color:#ccc}
+.avis-vide strong{display:block;color:#fff;font-size:20px;margin-bottom:6px}
+.avis-form{max-width:760px;margin:55px auto 0}
+.avis-form h3{margin-top:0;font-size:22px}
+.avis-form .duo{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.note{border:0;margin:12px 0 0;padding:0}
+.note legend{font-weight:700;font-size:14px;margin-bottom:4px;padding:0}
+.note-in{display:inline-flex;flex-direction:row-reverse;gap:2px}
+.note-in input{position:absolute;opacity:0;width:1px;height:1px}
+.note-in label{margin:0;font-size:34px;line-height:1;color:#d6d6d6;cursor:pointer;transition:color .15s}
+.note-in input:checked~label,.note-in label:hover,.note-in label:hover~label{color:var(--gold)}
+.note-in input:focus-visible+label{outline:2px solid var(--gold);outline-offset:2px}
+#avis-statut{margin:14px 0 0;min-height:1.4em;font-weight:700}
+#avis-statut.ok{color:#1e6b3a}
+#avis-statut.erreur{color:#b3261e}
+#btn-avis:disabled{opacity:.6;cursor:wait}
+@media(max-width:900px){.avis-list{grid-template-columns:1fr 1fr}}
+@media(min-width:901px) and (max-width:1150px){nav{gap:14px;font-size:13px}nav a{white-space:nowrap}nav .cta{padding:11px 14px}}
+@media(max-width:600px){.avis-list,.avis-form .duo{grid-template-columns:1fr}.avis-form{padding:24px}}
 </style>
 </head>
 <body>
@@ -384,6 +419,7 @@ dialog.legal mark{background:#fff3c4}
       <a href="#accueil">Accueil</a>
       <a href="#services">Nos services</a>
       <a href="#realisations">Nos réalisations</a>
+      <a href="#avis">Avis</a>
       <a href="#apropos">À propos</a>
       <a href="#zone">Zone d'intervention</a>
       <a href="#contact">Contact</a>
@@ -489,6 +525,57 @@ dialog.legal mark{background:#fff3c4}
   </div>
 </section>
 
+<section id="avis" class="section avis">
+  <div class="container">
+    <div class="avis-head">
+      <div class="kicker">Ils nous ont fait confiance</div>
+      <h2 class="section-title">Avis clients</h2>
+      <div class="gold-line"></div>
+      <p class="lead">Votre satisfaction est notre meilleure carte de visite. Découvrez les retours de nos clients et partagez votre expérience avec Signature Façades.</p>
+      <div class="avis-score" id="avis-score" hidden></div>
+    </div>
+    <div class="avis-list" id="avis-list"></div>
+
+    <div class="form avis-form">
+      <h3>Laisser un avis</h3>
+      <form id="form-avis" novalidate>
+        <input type="hidden" name="access_key" value="63308e5e-b853-41db-a911-e50583a16707">
+        <input type="hidden" name="subject" value="Nouvel avis client — signature-facades.fr">
+        <input type="hidden" name="from_name" value="Site Signature Façades — Avis">
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+        <div class="duo">
+          <div><label for="avis-nom">Prénom et initiale du nom</label>
+          <input id="avis-nom" name="Nom" autocomplete="name" placeholder="Ex. : Marie D." required></div>
+          <div><label for="avis-commune">Commune</label>
+          <input id="avis-commune" name="Commune" required></div>
+        </div>
+        <label for="avis-email">E-mail (non publié)</label>
+        <input id="avis-email" name="Email" type="email" autocomplete="email" required>
+        <label for="avis-travaux">Travaux réalisés</label>
+        <select id="avis-travaux" name="Travaux">
+          <option>Ravalement</option><option>Rénovation</option><option>Enduit / finition</option><option>Joint pierre</option>
+          <option>Traitement des fissures</option><option>Imitation pierre</option><option>Isolation extérieure</option><option>Peinture extérieure</option><option>Autre</option>
+        </select>
+        <fieldset class="note">
+          <legend>Votre note</legend>
+          <div class="note-in">
+            <input type="radio" id="n5" name="Note" value="5 / 5" required><label for="n5" title="5 étoiles">★</label>
+            <input type="radio" id="n4" name="Note" value="4 / 5"><label for="n4" title="4 étoiles">★</label>
+            <input type="radio" id="n3" name="Note" value="3 / 5"><label for="n3" title="3 étoiles">★</label>
+            <input type="radio" id="n2" name="Note" value="2 / 5"><label for="n2" title="2 étoiles">★</label>
+            <input type="radio" id="n1" name="Note" value="1 / 5"><label for="n1" title="1 étoile">★</label>
+          </div>
+        </fieldset>
+        <label for="avis-texte">Votre avis</label>
+        <textarea id="avis-texte" name="Avis" placeholder="Qualité du travail, respect des délais, propreté du chantier…" required></textarea>
+        <label class="rgpd"><input type="checkbox" id="avis-rgpd" required> J'accepte que mon avis soit publié sur ce site avec mon prénom, l'initiale de mon nom et ma commune. Mon e-mail ne sera pas publié.</label>
+        <button id="btn-avis" class="cta" type="submit" style="border:0;cursor:pointer;margin-top:15px">Envoyer mon avis</button>
+        <p id="avis-statut" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
 <section id="apropos" class="section">
   <div class="container">
     <div class="kicker">Signature Façades</div>
@@ -575,7 +662,7 @@ dialog.legal mark{background:#fff3c4}
       </div>
       <div>
         <h3>Navigation</h3>
-        <p><a href="#accueil">Accueil</a></p><p><a href="#services">Nos services</a></p><p><a href="#realisations">Nos réalisations</a></p><p><a href="#apropos">À propos</a></p><p><a href="#zone">Zone d'intervention</a></p><p><a href="#contact">Contact</a></p>
+        <p><a href="#accueil">Accueil</a></p><p><a href="#services">Nos services</a></p><p><a href="#realisations">Nos réalisations</a></p><p><a href="#avis">Avis clients</a></p><p><a href="#apropos">À propos</a></p><p><a href="#zone">Zone d'intervention</a></p><p><a href="#contact">Contact</a></p>
       </div>
       <div>
         <h3>Nos services</h3>
@@ -652,14 +739,15 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
 <p>Signature Façades SAS, 27 rue Léon et Cécile Mathy, 39570 Montmorot. Contact : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a>.</p>
 <h3>Données collectées</h3>
 <p>Lorsque vous remplissez le formulaire de demande de devis, nous collectons : nom et prénom, numéro de téléphone, adresse e-mail, commune du chantier, type de projet et contenu de votre message.</p>
+<p>Lorsque vous déposez un avis, nous collectons : prénom et initiale du nom, commune, adresse e-mail, type de travaux, note et texte de l'avis. Après vérification, seuls le prénom, l'initiale du nom, la commune, les travaux, la note et le texte sont publiés sur le site ; l'adresse e-mail n'est jamais publiée.</p>
 <h3>Finalité et base légale</h3>
-<p>Ces données servent uniquement à répondre à votre demande de devis et à vous recontacter. Le traitement repose sur votre consentement (case cochée avant l'envoi) et sur l'exécution de mesures précontractuelles prises à votre demande.</p>
+<p>Ces données servent uniquement à répondre à votre demande de devis et à vous recontacter, ou, pour les avis, à vérifier et publier votre témoignage. Le traitement repose sur votre consentement (case cochée avant l'envoi) et sur l'exécution de mesures précontractuelles prises à votre demande.</p>
 <h3>Destinataires et sous-traitants</h3>
 <p>Les données sont destinées à Signature Façades. Le formulaire est transmis par le service Web3Forms (Web3Forms, service d'envoi de formulaires), qui agit comme sous-traitant technique et peut traiter les données en dehors de l'Union européenne. Nous ne vendons ni ne cédons vos données à des tiers.</p>
 <h3>Durée de conservation</h3>
 <p>Vos données sont conservées pendant la durée nécessaire au traitement de votre demande, puis au maximum 3 ans après le dernier contact si aucune suite commerciale n'est donnée. En cas de contrat, elles sont conservées selon les durées légales applicables.</p>
 <h3>Vos droits</h3>
-<p>Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement à tout moment. Pour les exercer, écrivez à <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a>.</p>
+<p>Vous pouvez demander à tout moment le retrait de votre avis publié. Vous disposez d'un droit d'accès, de rectification, d'effacement, de limitation, d'opposition et de portabilité de vos données, ainsi que du droit de retirer votre consentement à tout moment. Pour les exercer, écrivez à <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.com</a>.</p>
 <p>Vous pouvez aussi introduire une réclamation auprès de la CNIL : <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a>.</p>
 <p class="maj">Dernière mise à jour : octobre 2026</p>
 </div></dialog>
@@ -681,6 +769,7 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
 <li><a href="#accueil">Accueil</a></li>
 <li><a href="#services">Nos services</a></li>
 <li><a href="#realisations">Nos réalisations</a></li>
+<li><a href="#avis">Avis clients</a></li>
 <li><a href="#apropos">À propos</a></li>
 <li><a href="#zone">Zone d'intervention</a></li>
 <li><a href="#contact">Contact</a></li>
@@ -713,6 +802,49 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
   lb.querySelector('.lb-n').onclick=function(){show(k+1);};
   lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
   document.addEventListener('keydown',function(e){if(!lb.open)return;if(e.key==='ArrowLeft')show(k-1);if(e.key==='ArrowRight')show(k+1);});
+})();
+</script>
+<script>
+/* ================================
+   AVIS CLIENTS
+   Pour publier un avis reçu par e-mail, ajoutez une ligne dans la liste ci-dessous, par exemple :
+   {nom:"Marie D.", commune:"Lons-le-Saunier", travaux:"Ravalement", note:5, date:"Octobre 2026", texte:"Travail soigné…"},
+   N'ajoutez que de vrais avis, reçus de vrais clients.
+================================ */
+var AVIS = [
+];
+(function(){
+  var list=document.getElementById('avis-list'),score=document.getElementById('avis-score');
+  function esc(t){var d=document.createElement('div');d.textContent=t==null?'':String(t);return d.innerHTML;}
+  function stars(n){n=Math.round(n);return '<span class="stars" aria-label="'+n+' sur 5">'+'★★★★★'.slice(0,n)+'<span class="off">'+'★★★★★'.slice(0,5-n)+'</span></span>';}
+  if(!AVIS.length){
+    list.innerHTML='<div class="avis-vide"><strong>Soyez le premier à donner votre avis</strong>Vous avez fait appel à Signature Façades ? Partagez votre expérience grâce au formulaire ci-dessous.</div>';
+  }else{
+    var tot=0;
+    list.innerHTML=AVIS.map(function(a){tot+=a.note;return '<figure class="avis-card">'+stars(a.note)+'<blockquote>'+esc(a.texte)+'</blockquote><figcaption><strong>'+esc(a.nom)+'</strong>'+esc([a.commune,a.travaux,a.date].filter(Boolean).join(' · '))+'</figcaption></figure>';}).join('');
+    var m=tot/AVIS.length;
+    score.innerHTML='<b>'+m.toFixed(1).replace('.',',')+'</b>'+stars(m)+'<span>'+AVIS.length+' avis</span>';
+    score.hidden=false;
+  }
+  var f=document.getElementById('form-avis'),st=document.getElementById('avis-statut'),b=document.getElementById('btn-avis');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); st.className=''; st.textContent='';
+    if(!f.checkValidity()){
+      if(!f.querySelector('input[name="Note"]:checked')){st.className='erreur';st.textContent='Merci de choisir une note.';}
+      f.reportValidity();return;
+    }
+    b.disabled=true; b.textContent='Envoi en cours…';
+    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(f)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(!d.success) throw new Error();
+        f.reset(); st.className='ok'; st.textContent='Merci pour votre avis ! Il sera publié après vérification.';
+      })
+      .catch(function(){
+        st.className='erreur'; st.textContent="L'envoi a échoué. Vous pouvez nous écrire à signaturefacades@hotmail.com.";
+      })
+      .finally(function(){b.disabled=false; b.textContent='Envoyer mon avis';});
+  });
 })();
 </script>
 </body>
