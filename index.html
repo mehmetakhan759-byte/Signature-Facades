@@ -433,10 +433,22 @@ dialog.legal mark{background:#fff3c4}
 .devis-infos a:hover{color:var(--gold)}
 .devis-infos svg{width:18px;height:18px;fill:var(--gold);color:var(--gold)}
 @media(max-width:700px){.devis-sec{padding:70px 12px}.devis-card{padding:44px 20px 28px;border-radius:22px}.devis-grid{grid-template-columns:1fr}.devis-foot{flex-direction:column;align-items:stretch;text-align:center}#btn-envoi{justify-content:space-between}}
+/* BANDE DEFILANTE */
+.bande{background:#f5f4f1;border-bottom:1px solid #e7e2d6;overflow:hidden;white-space:nowrap;font-size:12.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;line-height:1}
+.bande-track{display:flex;width:max-content;animation:bande 45s linear infinite}
+.bande:hover .bande-track{animation-play-state:paused}
+.bande-grp{display:flex;align-items:center;padding:11px 0}
+.bande-grp span{padding:0 22px}
+.bande .bg{color:#a8821f}
+.bande .bn{color:#555}
+.bande i{width:4px;height:4px;border-radius:50%;background:#c9c3b5;flex-shrink:0}
+@keyframes bande{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.bande-track{animation:none}}
 </style>
 </head>
 <body>
 
+<div class="bande" role="region" aria-label="Points forts de Signature Façades"><div class="bande-track"><div class="bande-grp"><span class="bg">Ravalement · Enduits · Imitation pierre</span><i></i><span class="bn">Entreprise familiale, de père en fils</span><i></i><span class="bg">+20 ans d'expérience</span><i></i><span class="bn">Garantie décennale</span><i></i><span class="bg">5,0 ★ sur Google</span><i></i><span class="bn">Devis gratuit</span><i></i><span class="bg">6 départements de l'Est</span><i></i></div><div class="bande-grp" aria-hidden="true"><span class="bg">Ravalement · Enduits · Imitation pierre</span><i></i><span class="bn">Entreprise familiale, de père en fils</span><i></i><span class="bg">+20 ans d'expérience</span><i></i><span class="bn">Garantie décennale</span><i></i><span class="bg">5,0 ★ sur Google</span><i></i><span class="bn">Devis gratuit</span><i></i><span class="bg">6 départements de l'Est</span><i></i></div></div></div>
 <header>
   <div class="container nav">
     <a href="#accueil" aria-label="Signature Façades - Accueil">
