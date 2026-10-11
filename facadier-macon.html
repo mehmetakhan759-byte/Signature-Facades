@@ -479,6 +479,14 @@ nav a,.dd-t{white-space:nowrap}
 .jura-faq summary::after{right:6px;top:50%;transform:translateY(-50%);font-family:Arial,sans-serif;font-size:24px;font-weight:400;line-height:1}
 .jura-faq details p{padding:0 48px 22px 0;font-size:15.5px;line-height:1.75}
 @media(max-width:600px){.jura-faq summary{font-size:20px;padding:16px 40px 16px 0}.jura-faq details p{padding-right:0}}
+/* BANDEAU COOKIES */
+.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:9999;background:#151515;color:#eee;border-top:3px solid var(--gold);padding:18px 20px;box-shadow:0 18px 45px rgba(0,0,0,.35);font-size:14px;line-height:1.55}
+.ck[hidden]{display:none}
+.ck p{margin:0 0 14px}
+.ck a{color:var(--gold2);text-decoration:underline}
+.ck-b{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.ck-b button{font:inherit;font-weight:800;padding:10px 18px;border-radius:3px;cursor:pointer;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff}
+.ck-b button.cta{border-color:var(--gold);background:var(--gold);color:#111}
 </style>
 </head>
 <body>
@@ -649,5 +657,19 @@ nav a,.dd-t{white-space:nowrap}
   </div>
 </footer>
 <script>(function(){var b=document.querySelector(".burger"),m=document.getElementById("mmenu");if(!b||!m)return;function t(o){m.hidden=!o;b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"Fermer le menu":"Ouvrir le menu");}b.addEventListener("click",function(){t(m.hidden)});m.addEventListener("click",function(e){if(e.target.closest("a"))t(false)});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false)});})();</script>
+<div class="ck" id="ck" hidden role="dialog" aria-label="Gestion des cookies"><p>Avec votre accord, nous utilisons un cookie de mesure (Meta) pour savoir si nos publicités Facebook et Instagram vous ont amené ici. Aucune donnée n'est vendue. <a href="/#cookies">En savoir plus</a></p><div class="ck-b"><button type="button" data-ck="0">Refuser</button><button type="button" class="cta" data-ck="1">Accepter</button></div></div>
+<script>
+(function(){var K='sf_consent',ID='1114178914636812',MAX=395*864e5;
+function get(){try{var o=JSON.parse(localStorage.getItem(K));if(o&&Date.now()-o.t<MAX)return o.v;}catch(e){}return null;}
+function set(v){try{localStorage.setItem(K,JSON.stringify({v:v,t:Date.now()}));}catch(e){}}
+function load(){if(window.fbq)return;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',ID);fbq('track','PageView');}
+window.sfTrack=function(ev){if(window.fbq)window.fbq('track',ev);};
+window.sfCookieReset=function(){try{localStorage.removeItem(K);}catch(e){}location.reload();};
+var c=get(),bn=document.getElementById('ck');
+if(c==='1')load();else if(c!=='0'&&bn)bn.hidden=false;
+if(bn)bn.addEventListener('click',function(e){var b=e.target.closest('[data-ck]');if(!b)return;var v=b.getAttribute('data-ck');set(v);bn.hidden=true;if(v==='1')load();});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="tel:"]');if(a)window.sfTrack('Contact');});
+})();
+</script>
 </body>
 </html>

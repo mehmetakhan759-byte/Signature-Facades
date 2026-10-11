@@ -487,6 +487,14 @@ nav a,.dd-t{white-space:nowrap}
 }
 @media(max-width:420px){.brand-txt{display:none}}
 .why.why-alt{background:var(--gray)}
+/* BANDEAU COOKIES */
+.ck{position:fixed;left:16px;right:16px;bottom:16px;max-width:560px;margin:0 auto;z-index:9999;background:#151515;color:#eee;border-top:3px solid var(--gold);padding:18px 20px;box-shadow:0 18px 45px rgba(0,0,0,.35);font-size:14px;line-height:1.55}
+.ck[hidden]{display:none}
+.ck p{margin:0 0 14px}
+.ck a{color:var(--gold2);text-decoration:underline}
+.ck-b{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.ck-b button{font:inherit;font-weight:800;padding:10px 18px;border-radius:3px;cursor:pointer;border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff}
+.ck-b button.cta{border-color:var(--gold);background:var(--gold);color:#111}
 </style>
 </head>
 <body>
@@ -737,7 +745,7 @@ nav a,.dd-t{white-space:nowrap}
       .then(function(r){return r.json();})
       .then(function(d){
         if(!d.success) throw new Error();
-        f.reset(); st.className='ok'; st.textContent='Demande envoyée. Nous vous recontactons rapidement.';
+        f.reset(); if(window.sfTrack)sfTrack('Lead'); st.className='ok'; st.textContent='Demande envoyée. Nous vous recontactons rapidement.';
       })
       .catch(function(){
         st.className='erreur'; st.textContent="L'envoi a échoué. Appelez-nous au 06 13 12 64 76 ou écrivez à signaturefacades@hotmail.com.";
@@ -788,6 +796,8 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
 <p>Ces données servent uniquement à répondre à votre demande de devis et à vous recontacter. Le traitement repose sur votre consentement (case cochée avant l'envoi) et sur l'exécution de mesures précontractuelles prises à votre demande.</p>
 <h3>Destinataires et sous-traitants</h3>
 <p>Les données sont destinées à Signature Façades. Le formulaire est transmis par le service Web3Forms (Web3Forms, service d'envoi de formulaires), qui agit comme sous-traitant technique et peut traiter les données en dehors de l'Union européenne. Nous ne vendons ni ne cédons vos données à des tiers.</p>
+<h3>Mesure des publicités (Meta)</h3>
+<p>Uniquement si vous l'acceptez via le bandeau cookies, nous utilisons le pixel de Meta Platforms Ireland Ltd. pour mesurer l'efficacité de nos publicités Facebook et Instagram (visites, demandes de devis, clics sur notre numéro). Meta agit alors en tant que responsable conjoint de ce traitement et peut transférer des données en dehors de l'Union européenne. Vous pouvez retirer votre accord à tout moment depuis la rubrique Cookies.</p>
 <h3>Durée de conservation</h3>
 <p>Vos données sont conservées pendant la durée nécessaire au traitement de votre demande, puis au maximum 3 ans après le dernier contact si aucune suite commerciale n'est donnée. En cas de contrat, elles sont conservées selon les durées légales applicables.</p>
 <h3>Vos droits</h3>
@@ -800,8 +810,12 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
 <button class="fermer" aria-label="Fermer">×</button>
 <div class="legal-in">
 <h2 id="t-cook">Cookies</h2>
-<p>Ce site ne dépose aucun cookie publicitaire, de mesure d'audience ou de suivi. Il ne nécessite donc pas de bannière de consentement.</p>
-<p>Votre navigateur peut toutefois enregistrer des données techniques strictement nécessaires à l'affichage du site. Si nous ajoutons un jour un outil de statistiques ou de suivi, cette page sera mise à jour et votre consentement vous sera demandé.</p>
+<p>Ce site n'utilise ni cookie publicitaire ciblé ni outil de statistiques sans votre accord.</p>
+<h3>Mesure de nos publicités (Meta)</h3>
+<p>Si vous cliquez sur « Accepter » dans le bandeau, nous activons le pixel de Meta (Facebook / Instagram). Il dépose des cookies qui nous permettent de mesurer l'efficacité de nos publicités : visites venant de Facebook ou Instagram, demandes de devis envoyées et clics sur notre numéro de téléphone. Si vous refusez, rien n'est déposé.</p>
+<p>Votre choix est conservé 13 mois au maximum dans votre navigateur. Vous pouvez le modifier à tout moment : <a href="#" onclick="sfCookieReset();return false;" style="color:#a8821f;text-decoration:underline">modifier mes choix de cookies</a>.</p>
+<h3>Cookies techniques</h3>
+<p>Votre navigateur peut aussi enregistrer des données strictement nécessaires au fonctionnement du site (par exemple votre choix concernant les cookies). Elles ne servent pas à vous suivre.</p>
 <p class="maj">Dernière mise à jour : octobre 2026</p>
 </div></dialog>
 
@@ -852,5 +866,19 @@ E-mail : <a href="mailto:signaturefacades@hotmail.com">signaturefacades@hotmail.
 })();
 </script>
 <script>(function(){var b=document.querySelector(".burger"),m=document.getElementById("mmenu");if(!b||!m)return;function t(o){m.hidden=!o;b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"Fermer le menu":"Ouvrir le menu");}b.addEventListener("click",function(){t(m.hidden)});m.addEventListener("click",function(e){if(e.target.closest("a"))t(false)});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false)});})();</script>
+<div class="ck" id="ck" hidden role="dialog" aria-label="Gestion des cookies"><p>Avec votre accord, nous utilisons un cookie de mesure (Meta) pour savoir si nos publicités Facebook et Instagram vous ont amené ici. Aucune donnée n'est vendue. <a href="/#cookies">En savoir plus</a></p><div class="ck-b"><button type="button" data-ck="0">Refuser</button><button type="button" class="cta" data-ck="1">Accepter</button></div></div>
+<script>
+(function(){var K='sf_consent',ID='1114178914636812',MAX=395*864e5;
+function get(){try{var o=JSON.parse(localStorage.getItem(K));if(o&&Date.now()-o.t<MAX)return o.v;}catch(e){}return null;}
+function set(v){try{localStorage.setItem(K,JSON.stringify({v:v,t:Date.now()}));}catch(e){}}
+function load(){if(window.fbq)return;!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',ID);fbq('track','PageView');}
+window.sfTrack=function(ev){if(window.fbq)window.fbq('track',ev);};
+window.sfCookieReset=function(){try{localStorage.removeItem(K);}catch(e){}location.reload();};
+var c=get(),bn=document.getElementById('ck');
+if(c==='1')load();else if(c!=='0'&&bn)bn.hidden=false;
+if(bn)bn.addEventListener('click',function(e){var b=e.target.closest('[data-ck]');if(!b)return;var v=b.getAttribute('data-ck');set(v);bn.hidden=true;if(v==='1')load();});
+document.addEventListener('click',function(e){var a=e.target.closest('a[href^="tel:"]');if(a)window.sfTrack('Contact');});
+})();
+</script>
 </body>
 </html>
