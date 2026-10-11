@@ -392,6 +392,20 @@ nav a.actif{color:var(--gold)}
 .brand-foot .brand-txt{display:flex!important;border-left-color:#333}
 .brand-foot .brand-txt b{color:#fff}
 .brand-foot:hover .brand-txt b{color:var(--gold2)}
+/* ZONES - MENU ET VILLES */
+.dd{position:relative}
+.dd-t{display:inline-flex;align-items:center;gap:4px}
+.dd-t span{font-size:10px;color:var(--gold)}
+.dd::after{content:"";position:absolute;left:0;right:0;top:100%;height:22px}
+.dd-m{display:none;position:absolute;top:calc(100% + 22px);left:50%;transform:translateX(-50%);width:max-content;background:#151515;border-top:3px solid var(--gold);padding:26px 30px;grid-template-columns:repeat(3,minmax(150px,auto));gap:22px 40px;box-shadow:0 20px 50px rgba(0,0,0,.25);z-index:50}
+.dd:hover .dd-m,.dd:focus-within .dd-m{display:grid}
+.dd-m b{display:block;color:var(--gold2);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
+.dd-m a{display:block;color:#ddd;font-weight:600;font-size:14px;padding:4px 0}
+.dd-m a:hover{color:#fff}
+.foot-villes{border-top:1px solid #333;margin-top:35px;padding-top:22px}
+.foot-villes h3{margin:0 0 10px}
+.foot-villes p{margin:0;font-size:14px;line-height:2;color:#aaa}
+.foot-villes a:hover{color:var(--gold2)}
 </style>
 </head>
 <body>
@@ -408,7 +422,7 @@ nav a.actif{color:var(--gold)}
       <a href="/#realisations">Nos réalisations</a>
       <a class="actif" href="avis.html" aria-current="page">Avis</a>
       <a href="/#apropos">À propos</a>
-      <a href="/#zone">Zone d'intervention</a>
+      <div class="dd"><a class="dd-t" href="/#zone">Zones d'intervention <span aria-hidden="true">▾</span></a><div class="dd-m"><div><b>Jura (39)</b><a href="facadier-jura.html">Tout le Jura</a><a href="facadier-lons-le-saunier.html">Lons-le-Saunier</a><a href="facadier-dole.html">Dole</a><a href="facadier-champagnole.html">Champagnole</a><a href="facadier-poligny.html">Poligny</a><a href="facadier-saint-claude.html">Saint-Claude</a></div><div><b>Doubs (25)</b><a href="facadier-besancon.html">Besançon</a><a href="facadier-pontarlier.html">Pontarlier</a><a href="facadier-montbeliard.html">Montbéliard</a></div><div><b>Saône-et-Loire (71)</b><a href="facadier-chalon-sur-saone.html">Chalon-sur-Saône</a><a href="facadier-macon.html">Mâcon</a><a href="facadier-louhans.html">Louhans</a><a href="facadier-le-creusot.html">Le Creusot</a><a href="facadier-autun.html">Autun</a></div><div><b>Côte-d'Or (21)</b><a href="facadier-dijon.html">Dijon</a><a href="facadier-beaune.html">Beaune</a><a href="facadier-auxonne.html">Auxonne</a></div><div><b>Ain (01)</b><a href="facadier-bourg-en-bresse.html">Bourg-en-Bresse</a><a href="facadier-oyonnax.html">Oyonnax</a></div><div><b>Haute-Saône (70)</b><a href="facadier-vesoul.html">Vesoul</a><a href="facadier-gray.html">Gray</a></div></div></div>
       <a href="/#contact">Contact</a>
       <a class="cta" href="/#devis">Demander un devis</a>
     </nav>
@@ -501,6 +515,7 @@ nav a.actif{color:var(--gold)}
         <p>Jura · Doubs · Saône-et-Loire · Côte-d'Or · Ain · Haute-Saône</p>
       </div>
     </div>
+    <div class="foot-villes"><h3>Façadier près de chez vous</h3><p><a href="facadier-lons-le-saunier.html">Lons-le-Saunier</a> · <a href="facadier-dole.html">Dole</a> · <a href="facadier-champagnole.html">Champagnole</a> · <a href="facadier-poligny.html">Poligny</a> · <a href="facadier-saint-claude.html">Saint-Claude</a> · <a href="facadier-besancon.html">Besançon</a> · <a href="facadier-pontarlier.html">Pontarlier</a> · <a href="facadier-montbeliard.html">Montbéliard</a> · <a href="facadier-chalon-sur-saone.html">Chalon-sur-Saône</a> · <a href="facadier-macon.html">Mâcon</a> · <a href="facadier-louhans.html">Louhans</a> · <a href="facadier-le-creusot.html">Le Creusot</a> · <a href="facadier-autun.html">Autun</a> · <a href="facadier-dijon.html">Dijon</a> · <a href="facadier-beaune.html">Beaune</a> · <a href="facadier-auxonne.html">Auxonne</a> · <a href="facadier-bourg-en-bresse.html">Bourg-en-Bresse</a> · <a href="facadier-oyonnax.html">Oyonnax</a> · <a href="facadier-vesoul.html">Vesoul</a> · <a href="facadier-gray.html">Gray</a> · <a href="facadier-jura.html">Tout le Jura</a></p></div>
     <div class="bottom">
       <span>© 2026 Signature Façades — Tous droits réservés.</span>
       <span><a href="/#mentions">Mentions légales</a> · <a href="/#confidentialite">Politique de confidentialité</a> · <a href="/#cookies">Cookies</a> · <a href="/#plan">Plan du site</a></span>
