@@ -408,6 +408,36 @@ nav a,.dd-t{white-space:nowrap}
 .foot-villes h3{margin:0 0 10px}
 .foot-villes p{margin:0;font-size:14px;line-height:2;color:#aaa}
 .foot-villes a:hover{color:var(--gold2)}
+/* MENU MOBILE */
+.mob{display:none}
+.mmenu{display:none}
+@media(max-width:900px){
+ .mob{display:flex;align-items:center;gap:8px}
+ .mob .mobile.cta{padding:11px 14px}
+ .mob-tel,.burger{width:44px;height:44px;display:grid;place-items:center;border:1px solid #e3ddcf;border-radius:3px;background:#fff;cursor:pointer;padding:0}
+ .mob-tel svg{width:19px;height:19px;fill:#151515}
+ .burger{position:relative;background:#151515;border-color:#151515}
+ .burger span{position:absolute;left:12px;right:12px;height:2px;background:#fff;transition:transform .3s,opacity .3s}
+ .burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:21px}.burger span:nth-child(3){top:27px}
+ .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+ .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+ .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+ .mmenu:not([hidden]){display:block;position:absolute;left:0;right:0;top:100%;background:#151515;color:#fff;padding:8px 6% 24px;max-height:calc(100vh - 110px);overflow-y:auto;box-shadow:0 20px 40px rgba(0,0,0,.3);border-top:3px solid var(--gold)}
+ .mmenu>a,.mm-zones summary{display:block;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);font-weight:700;font-size:16px;color:#fff}
+ .mmenu>a:hover,.mm-zones summary:hover{color:var(--gold2)}
+ .mm-zones summary{list-style:none;cursor:pointer;position:relative}
+ .mm-zones summary::-webkit-details-marker{display:none}
+ .mm-zones summary::after{content:"";position:absolute;right:4px;top:21px;width:8px;height:8px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);transform:rotate(45deg);transition:transform .3s}
+ .mm-zones[open] summary::after{transform:rotate(-135deg);top:24px}
+ .mm-zl{display:grid;grid-template-columns:1fr 1fr;gap:0 18px;padding:6px 0 14px;border-bottom:1px solid rgba(255,255,255,.1)}
+ .mm-dep{grid-column:1/-1;margin:14px 0 4px;color:var(--gold2);font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+ .mm-zl a{color:#ccc;font-size:14px;padding:6px 0}
+ .mm-actions{display:grid;gap:10px;margin-top:20px}
+ .mm-actions .cta{text-align:center}
+ .mm-call{display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid rgba(255,255,255,.5);padding:12px;border-radius:3px;font-weight:800}
+ .mm-call svg{width:18px;height:18px;fill:var(--gold2)}
+}
+@media(max-width:420px){.brand-txt{display:none}}
 </style>
 </head>
 <body>
@@ -428,7 +458,14 @@ nav a,.dd-t{white-space:nowrap}
       <a href="/#contact">Contact</a>
       <a class="cta" href="/#devis">Demander un devis</a>
     </nav>
-    <a class="mobile cta" href="/#contact">Devis</a>
+    <div class="mob"><a class="mob-tel" href="tel:+33613126476" aria-label="Appeler le 06 13 12 64 76"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg></a><a class="mobile cta" href="/#contact">Devis</a><button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button></div>
+  </div>
+
+  <div class="mmenu" id="mmenu" hidden>
+    <a href="/#accueil">Accueil</a><a href="/#services">Nos services</a><a href="/#realisations">Nos réalisations</a><a href="avis.html">Avis clients</a><a href="/#apropos">À propos</a>
+    <details class="mm-zones"><summary>Zones d'intervention</summary><div class="mm-zl"><p class="mm-dep">Jura (39)</p><a href="facadier-jura.html">Tout le Jura</a><a href="facadier-lons-le-saunier.html">Lons-le-Saunier</a><a href="facadier-dole.html">Dole</a><a href="facadier-champagnole.html">Champagnole</a><a href="facadier-poligny.html">Poligny</a><a href="facadier-saint-claude.html">Saint-Claude</a><p class="mm-dep">Doubs (25)</p><a href="facadier-besancon.html">Besançon</a><a href="facadier-pontarlier.html">Pontarlier</a><a href="facadier-montbeliard.html">Montbéliard</a><p class="mm-dep">Saône-et-Loire (71)</p><a href="facadier-chalon-sur-saone.html">Chalon-sur-Saône</a><a href="facadier-macon.html">Mâcon</a><a href="facadier-louhans.html">Louhans</a><a href="facadier-le-creusot.html">Le Creusot</a><a href="facadier-autun.html">Autun</a><p class="mm-dep">Côte-d'Or (21)</p><a href="facadier-dijon.html">Dijon</a><a href="facadier-beaune.html">Beaune</a><a href="facadier-auxonne.html">Auxonne</a><p class="mm-dep">Ain (01)</p><a href="facadier-bourg-en-bresse.html">Bourg-en-Bresse</a><a href="facadier-oyonnax.html">Oyonnax</a><p class="mm-dep">Haute-Saône (70)</p><a href="facadier-vesoul.html">Vesoul</a><a href="facadier-gray.html">Gray</a></div></details>
+    <a href="/#contact">Contact</a>
+    <div class="mm-actions"><a class="cta" href="/#devis">Demander un devis gratuit</a><a class="mm-call" href="tel:+33613126476"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.2 15.2 0 006.6 6.6l2.2-2.2a1 1 0 011-.25 11.4 11.4 0 003.6.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1z"/></svg>06 13 12 64 76</a></div>
   </div>
 </header>
 
@@ -524,5 +561,6 @@ nav a,.dd-t{white-space:nowrap}
     </div>
   </div>
 </footer>
+<script>(function(){var b=document.querySelector(".burger"),m=document.getElementById("mmenu");if(!b||!m)return;function t(o){m.hidden=!o;b.setAttribute("aria-expanded",o);b.setAttribute("aria-label",o?"Fermer le menu":"Ouvrir le menu");}b.addEventListener("click",function(){t(m.hidden)});m.addEventListener("click",function(e){if(e.target.closest("a"))t(false)});document.addEventListener("keydown",function(e){if(e.key==="Escape")t(false)});})();</script>
 </body>
 </html>
